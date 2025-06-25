@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SurajVishwakarma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 20px;
+        }
+
+        .logo {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            animation: raa 3s ease-in-out infinite;
+        }
+@keyframes raa {
+    0%{
+        color: red;
+    }
+    50%{
+        color: yellow;
+    }
+    100%{
+        color:blue;
+    }
+}
+        .nav ul {
+            display: flex;
+            gap: 20px;
+            font-size: 25px;
+            list-style: none;
+            color: black;
+        }
+
+        .nav li:hover {
+            color: black;
+            background-color: rgb(56, 106, 199);
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 12px 24px;
+            font-size: 16px;
+            transition-duration: 0.4s;
+        }
+
+        hr {
+      border: none;
+      height: 4px;
+      background: linear-gradient(90deg, #3498db, #f1c40f, #e74c3c);
+      width: 90%;
+      margin: 24px auto;
+      border-radius: 4px;
+    }
+
+        #intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px;
+        }
+
+        #intro img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        #intro p {
+            max-width: 600px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(56, 106, 199);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: rgb(34, 85, 170);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            #intro {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            #intro img {
+                width: 80%;
+                /* Smaller image on mobile */
+                margin-bottom: 20px;
+            }
+
+            #intro p {
+                max-width: 100%;
+                /* Full width text on mobile */
+                font-size: 16px;
+                padding: 0 10px;
+                /* Some space on the sides */
+            }
+
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+            }
+
+            .nav li:hover {
+                padding: 10px 20px;
+                font-size: 16px;
+                color: white;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+            footer{
+                 flex-direction: column;
+            }
+        }
+
+        @keyframes skills{
+            from {fadeIn 180px}
+            to {slide 23px}
+        }
+        .skills {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+
+        }
+
+        .skills h3 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .skills p {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .skills {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  /* Start offscreen left + invisible */
+  transform: translateX(-50px);
+  opacity: 0;
+
+  /* Transition for slide */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.progress-bar.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Progress fill starts from width 0 */
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: #4caf50;
+  border-radius: 10px 0 0 10px;
+  /* No animation by default */
+}
+
+/* When visible, animate width to var(--progress) */
+.progress-bar.visible .progress-fill {
+  animation: fillProgress 2s forwards;
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress);
+  }
+}
+
+/* Optional: Responsive */
+@media (max-width: 768px) {
+  .skills {
+    padding: 20px;
+  }
+}
+
+
+        meter {
+            width: 100%;
+            height: 20px;
+            border-radius: 8px;
+            background: #eee;
+        }
+
+        /* Chrome/WebKit Customization */
+        meter::-webkit-meter-bar {
+            background: #f3f3f3;
+            border-radius: 8px;
+        }
+
+        meter::-webkit-meter-optimum-value {
+            background: #4caf50;
+            border-radius: 8px;
+        }
+
+        /* Firefox */
+        meter::-moz-meter-bar {
+            background: #4caf50;
+            border-radius: 8px;
+        }
+        .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}
+form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+ .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content input, .modal-content button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    
+    .card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+footer
+{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+  <div class="logo"> Vishwakarma SURAJ</div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+  <nav class="nav" id="navbar">
+    <ul>
+      <li><a href="#login" onclick="openModal()">Login</a></li>
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#Resources">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+    <hr />
+
+    <h2 style="text-align: center; margin-top: 40px;">Welcome to my portfolio</h2>
+
+    <section id="intro">
+        <img src="c:\Users\DK\OneDrive\Desktop\bittu.jpeg" alt="suraj" />
+        <p>
+            Hi, I’m Suraj – a passionate Front-End Developer. I specialize in building responsive,
+            user-friendly websites using HTML, CSS, JavaScript, and modern frameworks like React. My
+            goal is to create clean, accessible, and visually appealing interfaces that offer seamless
+            user experiences. I enjoy turning creative ideas into real, functional web designs and
+            continuously strive to stay updated with the latest trends and technologies in web
+            development. Whether it’s optimizing performance or enhancing interactivity, I’m always
+            focused on delivering quality in every project.
+        </p>
+        <div class="buttons">
+            <button>Hire Me</button>
+            <button>GitHub</button>
+        </div>
+        </div>
+    </section>
+    <h2 style="text-align: center; margin-top: 40px;">Resources</h2>
+<section class="container" id="Resources">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1526925539332-aa3b66e35444?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fullstack Developer">
+    <p>Fullstack Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1604964432806-254d07c11f32?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Web Developer">
+    <p>Web Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=725&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Graphical Developer">
+    <p>Graphical Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=250&fit=crop" alt="Mobile Android Developer">
+    <p>Mobile Android Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://media.istockphoto.com/id/518460606/photo/programming-button-on-computer-keyboard.jpg?s=1024x1024&w=is&k=20&c=ajFwfb8bfw2iVPdc_3MOmQQg-H-kWK2meD41ZpLBUs4=" alt="Machine Learning Developer">
+    <p>Machine Learning Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=250&fit=crop" alt="Backend Developer">
+    <p>Backend Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?w=400&h=250&fit=crop" alt="Overflow Developer">
+    <p>Overflow Developer</p>
+  </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop" alt="Front-End Developer">
+    <p>Front-End Developer</p>
+  </div>
+</section>
+
+
+
+<hr />
+
+    <section class="skills" id="skills">
+    <h3>Skills</h3>
+
+    <p>HTML</p>
+    <div class="progress-bar">
+      <div class="progress-fill" style="--progress: 70%;"></div>
+    </div>
+
+    <p>CSS</p>
+    <div class="progress-bar">
+      <div class="progress-fill" style="--progress: 70%;"></div>
+    </div>
+
+    <p>JavaScript</p>
+    <div class="progress-bar">
+      <div class="progress-fill" style="--progress: 80%;"></div>
+    </div>
+
+    <p>GitHub</p>
+    <div class="progress-bar">
+      <div class="progress-fill" style="--progress: 75%;"></div>
+    </div>
+
+    <p>React</p>
+    <div class="progress-bar">
+      <div class="progress-fill" style="--progress: 90%;"></div>
+    </div>
+</section>
+
+    <hr />
+
+ <form action="#" method="post" id="contact">
+  <h3>Contact</h3>
+
+  <label for="name">Name</label><br>
+  <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password" placeholder="Enter password" required><br><br>
+
+  <label for="gmail">Email</label><br>
+  <input type="email" id="gmail" name="email" placeholder="gmail@example.com" required><br><br>
+
+  <button type="submit">Submit</button>
+  <button type="reset">Clear</button>
+</form>
+<hr />
+
+<div class="login-box" id="login">
+    <h2 style="text-align: center; font-size: 20px;">Login</h2>
+    <form action="#" method="post">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+
+      <div class="note">
+        Don't have an account? <a href="#">Register</a>
+      </div>
+    </form>
+  </div>
+
+   <hr />
+
+  <footer>SurajVishwakarma@Copyright  +9370944696</footer>
+<script>
+    function openModal() {
+      document.getElementById("loginModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("loginModal").style.display = "none";
+    }
+
+    // Optional: close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById("loginModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  // Reveal cards on scroll
+  const cards = document.querySelectorAll(".card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => observer.observe(card));
+
+  function toggleMenu() {
+  const menu = document.querySelector('.nav ul');
+  menu.classList.toggle('show');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const progressBars = document.querySelectorAll('.progress-bar');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Animate once
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progressBars.forEach(bar => {
+    observer.observe(bar);
+  });
+});
+
+  </script>
+</body>
+
+</html>
