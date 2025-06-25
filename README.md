@@ -6,7 +6,7 @@ A modern, responsive, and animated personal portfolio built using **HTML**, **CS
 
 ## 🌟 Demo
 
-🔗 **Live Demo**: _[https://github.com/Vishwakarmasuraj333/portfolio-simple-way/]_  
+🔗 **Live Demo**: _[https://vishwakarmasuraj333.github.io/portfolio-simple-way/]_  
 📷 **Screenshot**: _Add screenshot here if needed_
 
 ---
